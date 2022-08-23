@@ -17,13 +17,21 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public menu: MenuController, public auth: AuthService) {
   }
-    ionViewWillEnter() {
-      this.menu.swipeEnable(false);
-    }
-    ionViewDidLeave() {
-      this.menu.swipeEnable(true);
-    }
- 
+
+  ionViewWillEnter() {
+    this.menu.swipeEnable(false);
+  }
+  ionViewDidLeave() {
+    this.menu.swipeEnable(true);
+  }
+
+  ionViewDidEnter() {
+    this.auth.refreshToken()
+    .subscribe(response =>{
+      this.auth.successFulLogin(response.headers.get('Authorization'));
+      this.navCtrl.setRoot('CategoriasPage');
+    },
+    error => {});  }
 
   login(){
     this.auth.authenticate(this.creds)
