@@ -1,3 +1,4 @@
+import { CartService } from './../services/cart.service';
 import { ClienteService } from './../services/cliente.service';
 import { StorageService } from './../services/storage.service';
 import { AuthService } from './../services/auth.service';
@@ -39,7 +40,8 @@ import { ProdutoService } from '../services/produto.service';
     AuthService,
     StorageService,
     ClienteService,
-    ProdutoService
+    ProdutoService,
+    CartService
   ]
 })
 export class AppModule {}
