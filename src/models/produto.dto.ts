@@ -2,5 +2,5 @@ export interface ProdutoDTO{
     id: string;
     nome: string;
     preco: number;
-    imageURL?: string;
+    imageUrl?: string;
 }
